@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import CmsModal from '../Common/CmsModal';
 import { KPI_UNIT_OPTIONS, KPI_YEAR_OPTIONS } from '../../Utils/projectModel';
+import { clickableProps } from '../Common/keyboard';
 
 /** ================= EDIT KPI MODAL (multiple target/value pairs) ================= */
 const EditKpiModal = ({ kpis }) => {
@@ -45,7 +46,7 @@ const EditKpiModal = ({ kpis }) => {
                     <label>Upload KPI Logo <span className="cms-optional-tag">(Optional)</span></label>
                     <div className="cms-upload-wrap">
                         <input ref={editKpiLogoInput} type="file" accept="image/*" className="cms-hidden-file-input" onChange={onEditKpiLogoSelected} disabled={editKpiSubmitting} />
-                        <div className="cms-upload-box" onClick={() => editKpiLogoInput.current.click()}>
+                        <div className="cms-upload-box" onClick={() => editKpiLogoInput.current.click()} {...clickableProps(() => editKpiLogoInput.current.click())}>
                             {editKpiLogoBase64 && !editKpiLogoFileName && (
                                 <img src={'data:image/png;base64,' + editKpiLogoBase64} alt="" style={{ height: '24px', width: '24px', objectFit: 'contain', marginRight: '8px' }} />
                             )}
@@ -54,7 +55,7 @@ const EditKpiModal = ({ kpis }) => {
                             {editKpiLogoFileName && <span>{editKpiLogoFileName}</span>}
                             <i className="fa fa-arrow-up"></i>
                         </div>
-                        {(editKpiLogoFileName || editKpiLogoBase64) && <span className="cms-doc-action-link cms-doc-remove" onClick={clearEditKpiLogo}>Remove</span>}
+                        {(editKpiLogoFileName || editKpiLogoBase64) && <span className="cms-doc-action-link cms-doc-remove" onClick={clearEditKpiLogo} {...clickableProps(clearEditKpiLogo)}>Remove</span>}
                     </div>
                 </div>
 

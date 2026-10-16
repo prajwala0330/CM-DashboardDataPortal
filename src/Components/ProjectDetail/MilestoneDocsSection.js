@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { clickableProps } from '../Common/keyboard';
 
 /** One Milestone Documents row - its own hidden file input (upload / replace). */
 const DocRow = ({ row, detail }) => {
@@ -20,15 +21,15 @@ const DocRow = ({ row, detail }) => {
 
                     {!uploading && row.value && (
                         <>
-                            <span className="cms-doc-chip" onClick={() => openDocPreview(row.key, row.label)} title="View PDF">
+                            <span className="cms-doc-chip" onClick={() => openDocPreview(row.key, row.label)} {...clickableProps(() => openDocPreview(row.key, row.label))} title="View PDF">
                                 <i className="fa fa-file-pdf-o"></i>&nbsp;View PDF
                             </span>
 
                             <input ref={fileInput} type="file" accept="application/pdf" className="cms-hidden-file-input" onChange={(e) => onDocSelected(row.key, e)} disabled={saving} />
                             <div className="cms-doc-actions">
-                                <span className="cms-doc-action-link" onClick={() => fileInput.current.click()}>Replace</span>
+                                <span className="cms-doc-action-link" onClick={() => fileInput.current.click()} {...clickableProps(() => fileInput.current.click())}>Replace</span>
                                 <span className="cms-doc-action-divider">|</span>
-                                <span className="cms-doc-action-link cms-doc-remove" onClick={() => removeDoc(row.key)}>Remove</span>
+                                <span className="cms-doc-action-link cms-doc-remove" onClick={() => removeDoc(row.key)} {...clickableProps(() => removeDoc(row.key))}>Remove</span>
                             </div>
                         </>
                     )}

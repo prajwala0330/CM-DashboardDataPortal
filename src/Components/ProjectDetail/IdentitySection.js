@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { clickableProps } from '../Common/keyboard';
 
 /** ---- Project Identity ---- (names, subtitles, about, banners EN/KN, logo) */
 const IdentitySection = ({ detail }) => {
@@ -22,7 +23,7 @@ const IdentitySection = ({ detail }) => {
                 <input ref={inputRef} type="file" accept="image/*" className="cms-hidden-file-input" onChange={(e) => onBannerSelected(which, e)} disabled={saving} />
 
                 {!value && (
-                    <div className="cms-banner-drop" onClick={() => inputRef.current.click()}>
+                    <div className="cms-banner-drop" onClick={() => inputRef.current.click()} {...clickableProps(() => inputRef.current.click())}>
                         <i className="fa fa-picture-o"></i>
                         <span>Click to upload a banner image</span>
                     </div>
@@ -94,7 +95,7 @@ const IdentitySection = ({ detail }) => {
                                     <button type="button" className="cms-media-pill cms-media-pill-outline" onClick={() => logoInput.current.click()} disabled={saving}>
                                         <i className="fa fa-upload"></i>&nbsp;{identity.projectLogo ? 'Replace Logo' : 'Upload Logo'}
                                     </button>
-                                    {identity.projectLogo && <span className="cms-doc-action-link cms-doc-remove" onClick={clearLogo}>Remove</span>}
+                                    {identity.projectLogo && <span className="cms-doc-action-link cms-doc-remove" onClick={clearLogo} {...clickableProps(clearLogo)}>Remove</span>}
                                 </div>
                             </div>
                         </div>

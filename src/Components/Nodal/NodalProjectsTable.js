@@ -1,4 +1,5 @@
 import React from 'react';
+import { clickableProps } from '../Common/keyboard';
 
 /** Sortable projects table of the Nodal Dashboard (nodal-dashboard.component.html). */
 const NodalProjectsTable = ({ pagedProjects, sortBy, sortIcon, slNoFor, openProject }) => (
@@ -6,23 +7,23 @@ const NodalProjectsTable = ({ pagedProjects, sortBy, sortIcon, slNoFor, openProj
         <table className="cms-table cms-nodal-table">
             <thead>
                 <tr>
-                    <th style={{ width: '60px' }} className="cms-th-sortable" onClick={() => sortBy('slNo')}>
+                    <th style={{ width: '60px' }} className="cms-th-sortable" onClick={() => sortBy('slNo')} {...clickableProps(() => sortBy('slNo'), null)}>
                         Sl.No
                     </th>
                     <th style={{ width: '56px' }}>Logo</th>
-                    <th className="cms-th-sortable" onClick={() => sortBy('adminDeptName')}>
+                    <th className="cms-th-sortable" onClick={() => sortBy('adminDeptName')} {...clickableProps(() => sortBy('adminDeptName'), null)}>
                         Department <i className={sortIcon('adminDeptName')}></i>
                     </th>
-                    <th className="cms-th-sortable" onClick={() => sortBy('nameEn')}>
+                    <th className="cms-th-sortable" onClick={() => sortBy('nameEn')} {...clickableProps(() => sortBy('nameEn'), null)}>
                         Mission's <i className={sortIcon('nameEn')}></i>
                     </th>
-                    <th style={{ width: '130px' }} className="cms-th-sortable" onClick={() => sortBy('status')}>
+                    <th style={{ width: '130px' }} className="cms-th-sortable" onClick={() => sortBy('status')} {...clickableProps(() => sortBy('status'), null)}>
                         Status <i className={sortIcon('status')}></i>
                     </th>
-                    <th style={{ width: '180px' }} className="cms-th-sortable" onClick={() => sortBy('physicalTarget')}>
+                    <th style={{ width: '180px' }} className="cms-th-sortable" onClick={() => sortBy('physicalTarget')} {...clickableProps(() => sortBy('physicalTarget'), null)}>
                         Physical Target <i className={sortIcon('physicalTarget')}></i>
                     </th>
-                    <th style={{ width: '180px' }} className="cms-th-sortable" onClick={() => sortBy('financialTarget')}>
+                    <th style={{ width: '180px' }} className="cms-th-sortable" onClick={() => sortBy('financialTarget')} {...clickableProps(() => sortBy('financialTarget'), null)}>
                         Financial Target <i className={sortIcon('financialTarget')}></i>
                     </th>
                     <th className="cms-th-actions cms-th-nowrap" style={{ width: '80px' }}> View Details</th>

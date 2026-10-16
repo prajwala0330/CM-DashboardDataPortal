@@ -3,6 +3,7 @@ import CmsModal from '../Common/CmsModal';
 import { OUTPUT_LABELS } from './outputLabels';
 import { KARNATAKA_REGIONS } from '../../Utils/karnatakaMapData';
 import { toDdMmYyyy } from '../../Utils/projectModel';
+import { clickableProps } from '../Common/keyboard';
 
 /** Splits a free-text Physical/Financial Target field into lines. */
 const splitLines = (text) => (text || '').split('\n').map(l => l.trim()).filter(l => l.length > 0);
@@ -321,7 +322,7 @@ const WebpageOutputModal = ({ detail, kpis, selectedDistrict, setSelectedDistric
                             <div className="cms-output-quicklink-sub">{outputLabel('liveAnalyticsSub')}</div>
                         </div>
                     </div>
-                    <div className="cms-output-quicklink cms-output-quicklink-docs" onClick={(e) => { e.stopPropagation(); setIsMissionDocsFlyoutOpen(!isMissionDocsFlyoutOpen); }}>
+                    <div className="cms-output-quicklink cms-output-quicklink-docs" onClick={(e) => { e.stopPropagation(); setIsMissionDocsFlyoutOpen(!isMissionDocsFlyoutOpen); }} {...clickableProps(() => setIsMissionDocsFlyoutOpen(!isMissionDocsFlyoutOpen))}>
                         <i className="fa fa-file-text-o"></i>
                         <div>
                             <div className="cms-output-quicklink-title">{outputLabel('missionDocsTitle')}</div>
@@ -333,7 +334,7 @@ const WebpageOutputModal = ({ detail, kpis, selectedDistrict, setSelectedDistric
                                 {missionDocRows.map(row => (
                                     <div className="cms-output-docs-flyout-row" key={row.key}>
                                         {!row.value && <span>{row.label}</span>}
-                                        {row.value && <a onClick={() => openDocPreview(row.key, row.label)}>{row.label}</a>}
+                                        {row.value && <a onClick={() => openDocPreview(row.key, row.label)} {...clickableProps(() => openDocPreview(row.key, row.label))}>{row.label}</a>}
                                     </div>
                                 ))}
                             </div>

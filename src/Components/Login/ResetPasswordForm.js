@@ -1,5 +1,6 @@
 import React from 'react';
 import DeptDesignationFields from './DeptDesignationFields';
+import { clickableProps } from '../Common/keyboard';
 
 /** VIEW: RESET PASSWORD (login.component.html) */
 const ResetPasswordForm = ({ login }) => {
@@ -82,7 +83,7 @@ const ResetPasswordForm = ({ login }) => {
                 {s.resetErrorMsg && <div className="cmd-alert cmd-alert-error">{s.resetErrorMsg}</div>}
 
                 <div className="cmd-back-link">
-                    <a onClick={backToLogin}><i className="fa fa-long-arrow-left"></i> Back to Login</a>
+                    <a onClick={backToLogin} {...clickableProps(backToLogin)}><i className="fa fa-long-arrow-left"></i> Back to Login</a>
                 </div>
 
             </form>

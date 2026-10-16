@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import CmsModal from '../Common/CmsModal';
 import { KPI_UNIT_OPTIONS, KPI_YEAR_OPTIONS } from '../../Utils/projectModel';
+import { clickableProps } from '../Common/keyboard';
 
 /** ================= CREATE KPI MODAL ================= */
 const CreateKpiModal = ({ kpis }) => {
@@ -77,12 +78,12 @@ const CreateKpiModal = ({ kpis }) => {
                     <label>Upload KPI Logo <span className="cms-optional-tag">(Optional)</span></label>
                     <div className="cms-upload-wrap">
                         <input ref={kpiLogoInput} type="file" accept="image/*" className="cms-hidden-file-input" onChange={onKpiLogoSelected} disabled={createKpiSubmitting} />
-                        <div className="cms-upload-box" onClick={() => kpiLogoInput.current.click()}>
+                        <div className="cms-upload-box" onClick={() => kpiLogoInput.current.click()} {...clickableProps(() => kpiLogoInput.current.click())}>
                             {!newKpi.logoFileName && <span>e.g. KPI logo</span>}
                             {newKpi.logoFileName && <span>{newKpi.logoFileName}</span>}
                             <i className="fa fa-arrow-up"></i>
                         </div>
-                        {newKpi.logoFileName && <span className="cms-doc-action-link cms-doc-remove" onClick={clearKpiLogo}>Remove</span>}
+                        {newKpi.logoFileName && <span className="cms-doc-action-link cms-doc-remove" onClick={clearKpiLogo} {...clickableProps(clearKpiLogo)}>Remove</span>}
                     </div>
                 </div>
 

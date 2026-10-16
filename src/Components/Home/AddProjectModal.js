@@ -4,6 +4,7 @@ import { cmdAddNewProject } from '../../API/cmdService';
 import { buildAddProjectPayload } from '../../Utils/projectModel';
 import { getCmdToken } from '../../Utils/cmdSession';
 import { extractErrorMessage, isSuccess } from '../../Utils/apiHelpers';
+import { clickableProps } from '../Common/keyboard';
 
 const EMPTY_PROJECT = { nameEn: '', nameKn: '', taglineEn: '', taglineKn: '', logoFileName: '', logoBase64: '' };
 
@@ -142,13 +143,13 @@ const AddProjectModal = ({ postCode, onClose, onAdded }) => {
                     <div className="cms-upload-wrap">
                         <input ref={logoInput} type="file" accept="image/*" className="cms-hidden-file-input"
                             onChange={onLogoSelected} disabled={locked} />
-                        <div className="cms-upload-box" onClick={() => logoInput.current.click()}>
+                        <div className="cms-upload-box" onClick={() => logoInput.current.click()} {...clickableProps(() => logoInput.current.click())}>
                             {!newProject.logoFileName && <span>Attach your project logo</span>}
                             {newProject.logoFileName && <span>{newProject.logoFileName}</span>}
                             <i className="fa fa-arrow-up"></i>
                         </div>
                         {newProject.logoFileName && (
-                            <span className="cms-doc-action-link cms-doc-remove" onClick={clearLogo}>Remove</span>
+                            <span className="cms-doc-action-link cms-doc-remove" onClick={clearLogo} {...clickableProps(clearLogo)}>Remove</span>
                         )}
                     </div>
                 </div>

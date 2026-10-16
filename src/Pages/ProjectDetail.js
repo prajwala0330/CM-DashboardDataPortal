@@ -11,6 +11,7 @@ import DeleteKpiModal from '../Components/ProjectDetail/DeleteKpiModal';
 import DocPreviewModal from '../Components/ProjectDetail/DocPreviewModal';
 import WebpageOutputModal from '../Components/ProjectDetail/WebpageOutputModal';
 import SuccessModal from '../Components/Common/SuccessModal';
+import { clickableProps } from '../Components/Common/keyboard';
 import '../Styles/ProjectDetail.css';
 
 /**
@@ -35,7 +36,7 @@ const ProjectDetail = ({ variant }) => {
         <div className="page-project-detail">
             <div className="cms-detail">
 
-                <div className="cms-back-link" onClick={goHome}><i className="fa fa-long-arrow-left"></i> All projects</div>
+                <div className="cms-back-link" onClick={goHome} {...clickableProps(goHome)}><i className="fa fa-long-arrow-left"></i> All projects</div>
 
                 {/* loading */}
                 {loading && (
@@ -58,9 +59,9 @@ const ProjectDetail = ({ variant }) => {
                         <DetailHeader detail={detail} />
 
                         {/* Overview / KPIs tabs */}
-                        <div className="cms-tabs">
-                            <div className={`cms-tab${activeTab === 'overview' ? ' active' : ''}`} onClick={() => setActiveTab('overview')}>Overview</div>
-                            <div className={`cms-tab${activeTab === 'kpis' ? ' active' : ''}`} onClick={() => setActiveTab('kpis')}>KPIs</div>
+                        <div className="cms-tabs" role="tablist">
+                            <div className={`cms-tab${activeTab === 'overview' ? ' active' : ''}`} onClick={() => setActiveTab('overview')} {...clickableProps(() => setActiveTab('overview'), 'tab')} aria-selected={activeTab === 'overview'}>Overview</div>
+                            <div className={`cms-tab${activeTab === 'kpis' ? ' active' : ''}`} onClick={() => setActiveTab('kpis')} {...clickableProps(() => setActiveTab('kpis'), 'tab')} aria-selected={activeTab === 'kpis'}>KPIs</div>
                         </div>
 
                         {activeTab === 'overview' && <OverviewTab detail={detail} />}

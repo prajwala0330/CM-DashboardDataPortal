@@ -1,5 +1,6 @@
 import React from 'react';
 import DeptDesignationFields from './DeptDesignationFields';
+import { clickableProps } from '../Common/keyboard';
 
 const onEnter = (fn) => (e) => { if (e.key === 'Enter') fn(); };
 
@@ -108,7 +109,7 @@ const LoginForm = ({ login }) => {
                         </button>
 
                         <div className="cmd-forgot-link">
-                            <a onClick={openResetPassword}>Reset Password?</a>
+                            <a onClick={openResetPassword} {...clickableProps(openResetPassword)}>Reset Password?</a>
                         </div>
                     </>
                 )}
@@ -118,7 +119,7 @@ const LoginForm = ({ login }) => {
 
                 {s.isNewUser === null && (
                     <div className="cmd-forgot-link">
-                        <a onClick={openResetPassword}>Reset Password?</a>
+                        <a onClick={openResetPassword} {...clickableProps(openResetPassword)}>Reset Password?</a>
                     </div>
                 )}
 
