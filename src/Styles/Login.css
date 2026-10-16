@@ -514,3 +514,35 @@
   font-size: 12.5px;
   color: #b3261e;
 }
+
+/* ===== Redesign U3: forms (existing palette only) ===== */
+@media (min-width: 601px) {
+  /* Centre the login card vertically on larger screens */
+  .page-login .cmd-page {
+    justify-content: center;
+    padding: 32px 16px 40px;
+  }
+}
+
+.page-login .cmd-card {
+  border: 1px solid #e3d9bf;
+}
+
+.page-login .cmd-card-title {
+  font-weight: 600;
+}
+
+.page-login .cmd-label {
+  line-height: 1.5;
+}
+
+/* Fields, dropdown triggers and side buttons share one height */
+.page-login .cmd-input,
+.page-login .cmd-select-trigger,
+.page-login .cmd-link-btn {
+  min-height: 44px;
+}
+
+.page-login .cmd-inline-field {
+  align-items: stretch;
+}

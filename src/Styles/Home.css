@@ -640,3 +640,14 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== Redesign U3: forms (existing palette only) ===== */
+.page-home .cms-field label {
+  line-height: 1.5;
+}
+
+.page-home .cms-field input:not([type="file"]),
+.page-home .cms-upload-box {
+  min-height: 40px;
+  border-radius: 6px;
+}

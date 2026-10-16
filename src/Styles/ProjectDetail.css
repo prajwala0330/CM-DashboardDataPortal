@@ -2216,3 +2216,73 @@
   color: #26324A;
   margin-top: 2px;
 }
+
+/* ===== Redesign U3: forms (existing palette only) ===== */
+
+/* Overview sections: tighter, even rhythm instead of stacked label + grid margins */
+.page-project-detail .cms-section-body {
+  gap: 16px;
+}
+
+.page-project-detail .cms-section-body > .cms-grid-2 {
+  column-gap: 20px;
+  row-gap: 16px;
+  margin-bottom: 0;
+}
+
+.page-project-detail .cms-section-body .cms-field label {
+  margin-top: 0;
+}
+
+.page-project-detail .cms-field label {
+  line-height: 1.5;
+}
+
+/* One control height, font size and corner radius */
+.page-project-detail .cms-field input,
+.page-project-detail .cms-field textarea {
+  font-size: 13px;
+  border-radius: 6px;
+}
+
+.page-project-detail .cms-field input:not([type="file"]),
+.page-project-detail .cms-date-input,
+.page-project-detail .cms-select {
+  min-height: 40px;
+}
+
+.page-project-detail .cms-field textarea {
+  min-height: 96px;
+}
+
+.page-project-detail .cms-date-input {
+  padding: 9px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+}
+
+.page-project-detail .cms-target-textarea {
+  padding: 9px 12px;
+  border-radius: 6px;
+  line-height: 1.5;
+}
+
+.page-project-detail .cms-field-sm input:not([type="file"]) {
+  min-height: 36px;
+}
+
+@media (max-width: 720px) {
+  .page-project-detail .cms-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .page-project-detail .cms-section-body,
+  .page-project-detail .cms-subsection {
+    padding: 16px;
+  }
+
+  .page-project-detail .cms-date-input,
+  .page-project-detail .cms-target-textarea {
+    max-width: 100%;
+  }
+}
