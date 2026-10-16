@@ -2286,3 +2286,46 @@
     max-width: 100%;
   }
 }
+
+/* ===== Redesign U4: tables (existing palette only) ===== */
+
+/* State KPI table: logo and action columns centred */
+.page-project-detail .cms-kpi-table th:nth-child(2),
+.page-project-detail .cms-kpi-table td:nth-child(2),
+.page-project-detail .cms-kpi-table .cms-th-actions,
+.page-project-detail .cms-kpi-table td:last-child {
+  text-align: center;
+}
+
+.page-project-detail .cms-kpi-table td:nth-child(2) .cms-kpi-logo {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-project-detail .cms-kpi-action-buttons {
+  justify-content: center;
+}
+
+.page-project-detail .cms-row-sl {
+  font-variant-numeric: tabular-nums;
+}
+
+/* District table (31 rows): scroll inside the section with the header pinned */
+.page-project-detail .cms-section .cms-table-scroll:has(.cms-district-table) {
+  max-height: 60vh;
+  overflow: auto;
+}
+
+.page-project-detail .cms-district-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #F3E2AF;
+  box-shadow: inset 0 -2px 0 #D8B563;
+}
+
+@media (max-width: 720px) {
+  .page-project-detail .cms-kpi-table {
+    min-width: 640px;
+  }
+}

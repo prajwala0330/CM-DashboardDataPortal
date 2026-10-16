@@ -423,3 +423,49 @@
 .page-nodal-dashboard .cms-home-table-logo img {
   height: 100px;
 }
+
+/* ===== Redesign U4: tables (existing palette only) =====
+   Columns: 1 Sl.No, 2 Logo, 3 Department, 4 Mission's, 5 Status, 6 Physical Target, 7 Financial Target, 8 View Details */
+.page-nodal-dashboard .cms-table-scroll {
+  max-height: calc(100vh - 300px);
+  min-height: 240px;
+  overflow: auto;
+}
+
+.page-nodal-dashboard .cms-nodal-table {
+  min-width: 960px;
+}
+
+.page-nodal-dashboard .cms-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  box-shadow: inset 0 -1px 0 #d3b872;
+}
+
+/* Text columns read left-to-right, header aligned with its cells */
+.page-nodal-dashboard .cms-nodal-table th:nth-child(3),
+.page-nodal-dashboard .cms-nodal-table td:nth-child(3),
+.page-nodal-dashboard .cms-nodal-table th:nth-child(4),
+.page-nodal-dashboard .cms-nodal-table td:nth-child(4),
+.page-nodal-dashboard .cms-nodal-table th:nth-child(6),
+.page-nodal-dashboard .cms-nodal-table th:nth-child(7) {
+  text-align: left;
+}
+
+/* Sl.No, logo, status and action stay centred */
+.page-nodal-dashboard .cms-nodal-table th:nth-child(8),
+.page-nodal-dashboard .cms-nodal-table td:nth-child(8) {
+  text-align: center !important;
+}
+
+/* Lighter grid: keep row dividers, drop the heavy vertical cell borders */
+.page-nodal-dashboard .cms-table tbody td {
+  border-left: none;
+  border-right: none;
+  height: 64px;
+}
+
+.page-nodal-dashboard .cms-td-slno {
+  font-variant-numeric: tabular-nums;
+}

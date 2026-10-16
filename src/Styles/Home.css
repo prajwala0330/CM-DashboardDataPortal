@@ -651,3 +651,46 @@
   min-height: 40px;
   border-radius: 6px;
 }
+
+/* ===== Redesign U4: tables (existing palette only) =====
+   Columns: 1 Logo, 2 Project, 3 Status, 4 Physical Target, 5 Financial Target, 6 Actions */
+.page-home .cms-table-scroll {
+  max-height: calc(100vh - 220px);
+  overflow: auto;
+}
+
+.page-home .cms-home-table {
+  min-width: 720px;
+}
+
+/* Header stays visible while the list scrolls (inset shadow keeps its bottom border while stuck) */
+.page-home .cms-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  box-shadow: inset 0 -1px 0 #E9E1CC;
+}
+
+.page-home .cms-home-table th:nth-child(1),
+.page-home .cms-home-table td:nth-child(1),
+.page-home .cms-home-table th:nth-child(3),
+.page-home .cms-home-table td:nth-child(3),
+.page-home .cms-home-table th:nth-child(6),
+.page-home .cms-home-table td:nth-child(6) {
+  text-align: center !important;
+}
+
+.page-home .cms-home-table td:nth-child(1) .cms-home-table-logo,
+.page-home .cms-home-table td:nth-child(3) .cms-badge {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-home .cms-home-table-actions {
+  justify-content: center;
+}
+
+.page-home .cms-table tbody td {
+  height: 60px;
+  font-variant-numeric: tabular-nums;
+}
