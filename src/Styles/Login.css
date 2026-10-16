@@ -546,3 +546,8 @@
 .page-login .cmd-inline-field {
   align-items: stretch;
 }
+
+/* ===== Redesign U5: buttons and alerts (existing palette only) ===== */
+.page-login .cmd-login-btn {
+  min-height: 44px;
+}

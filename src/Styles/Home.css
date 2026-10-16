@@ -694,3 +694,47 @@
   height: 60px;
   font-variant-numeric: tabular-nums;
 }
+
+/* ===== Redesign U5: buttons, cards, modals, badges (existing palette only) ===== */
+.page-home .btn-primary,
+.page-home .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 20px;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+/* Icon buttons on cards and table rows: 32px touch target (was 26px) */
+.page-home .cms-footer-icon-btn {
+  width: 32px;
+  height: 32px;
+}
+
+.page-home .cms-view-toggle-btn {
+  min-height: 36px;
+}
+
+.page-home .cms-state-msg,
+.page-home .cms-error-banner,
+.page-home .cms-success-banner {
+  border-radius: 6px;
+}
+
+/* Modals: same padding and close-button target as the project screens */
+.page-home .cms-modal-sm {
+  max-width: 420px;
+}
+
+.page-home .cms-modal-close {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 0;
+}

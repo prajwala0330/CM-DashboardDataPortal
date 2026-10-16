@@ -2329,3 +2329,52 @@
     min-width: 640px;
   }
 }
+
+/* ===== Redesign U5: buttons, cards, modals, badges (existing palette only) ===== */
+.page-project-detail .btn-primary,
+.page-project-detail .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 20px;
+  line-height: 1.2;
+}
+
+.page-project-detail .cms-kpi-subtab-btn {
+  min-height: 36px;
+}
+
+/* Sections use the same corner radius as cards */
+.page-project-detail .cms-section {
+  border-radius: 8px;
+}
+
+/* Status badge: pill shape like the project list */
+.page-project-detail .cms-badge {
+  border-radius: 20px;
+}
+
+.page-project-detail .cms-state-msg,
+.page-project-detail .cms-error-banner,
+.page-project-detail .cms-success-banner {
+  border-radius: 6px;
+}
+
+/* Modals: one body padding, one close-button target */
+.page-project-detail .cms-modal-sm {
+  max-width: 420px;
+}
+
+.page-project-detail .cms-modal-body {
+  padding: 24px;
+}
+
+.page-project-detail .cms-modal-close {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}

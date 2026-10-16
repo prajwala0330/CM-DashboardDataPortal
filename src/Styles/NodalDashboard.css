@@ -469,3 +469,17 @@
 .page-nodal-dashboard .cms-td-slno {
   font-variant-numeric: tabular-nums;
 }
+
+/* ===== Redesign U5: buttons, cards, badges (existing palette only) ===== */
+.page-nodal-dashboard .cms-footer-icon-btn {
+  width: 32px;
+  height: 32px;
+}
+
+.page-nodal-dashboard .cms-nodal-pill {
+  min-height: 36px;
+}
+
+.page-nodal-dashboard .cms-state-msg {
+  border-radius: 6px;
+}
