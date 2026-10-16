@@ -7,6 +7,7 @@ import { LoaderProvider } from './Layout/LoaderContext';
 import AppShell from './Layout/AppShell';
 import AppRoutes from './Routes';
 import { useInactivityTimer } from './Hooks/useInactivityTimer';
+import './Styles/UiFoundation.css';
 
 const App = () => {
   // Angular InactivityService is created with the root component, so it also runs on the login page.

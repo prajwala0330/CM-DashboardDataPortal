@@ -1,0 +1,99 @@
+/* UI foundation (redesign batch U1).
+   - Design tokens: every colour below is an EXISTING colour already used by this app
+     (department-approved palette) - do not add new colour values here.
+   - Keyboard focus ring, disabled cursor, reduced-motion support.
+   - One typeface (Poppins) for all pages.
+   This file is intentionally global (not page-scoped); keep it limited to the rules above. */
+
+:root {
+  /* Colour tokens - existing values only */
+  --cms-navy: #26324A;
+  --cms-navy-login: #17325c;
+  --cms-gold: #B8862E;
+  --cms-brown: #8A7A52;
+  --cms-brown-dark: #6B6250;
+  --cms-text-strong: #4A4335;
+  --cms-bg-page: #FBF5E9;
+  --cms-bg-panel: #FFFDF8;
+  --cms-bg-soft: #F1EAD6;
+  --cms-border: #E7DCC2;
+  --cms-border-strong: #D8CBA8;
+  --cms-white: #ffffff;
+  --cms-green: #3F6B1F;
+  --cms-red: #B84343;
+  --cms-red-bg: #FBE7E7;
+  --cms-focus-halo: rgba(184, 134, 46, 0.15);
+
+  /* Spacing scale */
+  --cms-space-1: 4px;
+  --cms-space-2: 8px;
+  --cms-space-3: 12px;
+  --cms-space-4: 16px;
+  --cms-space-5: 20px;
+  --cms-space-6: 24px;
+  --cms-space-8: 32px;
+
+  /* Corner radius scale (values already used in the app) */
+  --cms-radius-sm: 4px;
+  --cms-radius-md: 6px;
+  --cms-radius-lg: 8px;
+  --cms-radius-xl: 10px;
+  --cms-radius-pill: 20px;
+
+  /* Type scale (sizes already used in the app) */
+  --cms-font: 'Poppins', system-ui, sans-serif;
+  --cms-font-xs: 11px;
+  --cms-font-sm: 12px;
+  --cms-font-base: 13px;
+  --cms-font-md: 14px;
+  --cms-font-lg: 16px;
+  --cms-font-xl: 19px;
+  --cms-font-2xl: 26px;
+
+  /* Elevation (shadows already used in the app) */
+  --cms-shadow-sm: 0 4px 14px rgba(38, 50, 74, 0.12);
+  --cms-shadow-md: 0 8px 24px rgba(38, 50, 74, 0.15);
+  --cms-shadow-modal: 0 12px 40px rgba(0, 0, 0, 0.25);
+
+  --cms-transition: 0.15s ease;
+}
+
+/* One typeface across the application */
+body,
+.page-login,
+.page-home,
+.page-project-detail,
+.page-nodal-dashboard,
+.page-nodal-usermgt {
+  font-family: var(--cms-font);
+}
+
+/* Keyboard focus: a clear ring on interactive elements. :focus-visible means mouse clicks
+   on buttons/links do not show it; keyboard users always see where they are. */
+:is(a, button, select, summary, [role="button"], [tabindex]:not([tabindex="-1"]), input[type="checkbox"], input[type="radio"]):focus-visible {
+  outline: 2px solid var(--cms-navy) !important;
+  outline-offset: 2px !important;
+}
+
+/* Text fields keep their existing gold focus border and gain a soft halo */
+:is(.page-login, .page-home, .page-project-detail, .page-nodal-dashboard, .page-nodal-usermgt)
+  :is(input:not([type="checkbox"]):not([type="radio"]):not([type="file"]), textarea):focus-visible {
+  box-shadow: 0 0 0 3px var(--cms-focus-halo);
+}
+
+/* Disabled controls look and feel disabled everywhere */
+:is(button, input, select, textarea):disabled {
+  cursor: not-allowed;
+}
+
+/* Respect the operating-system "reduce motion" setting */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
