@@ -44,15 +44,18 @@ const AppShell = ({ children }) => {
 
   const navLinkClass = ({ isActive }) => (isActive ? 'active' : undefined);
 
+  // Small screens: the sidebar is a slide-in menu opened by the navbar button; close it after navigating
+  const closeMenu = () => setNavCollapsed(true);
+
   return (
-    <div {...S} className="wrapper">
+    <div {...S} className={`wrapper${navCollapsed ? '' : ' cms-menu-open'}`}>
 
       {isLoginAuthenticated && (
         <div {...S} className="top_nav">
           <nav {...S} className="navbar navbar-inverse">
             <div {...S} className="container-fluid" style={{ margin: '0px', padding: '0px' }}>
               <div {...S} className="navbar-header">
-                <button {...S} type="button" className="navbar-toggle" onClick={() => setNavCollapsed(!navCollapsed)}>
+                <button {...S} type="button" className="navbar-toggle" aria-expanded={!navCollapsed} aria-controls="myNavbar" onClick={() => setNavCollapsed(!navCollapsed)}>
                   <span {...S} className="icon-bar"></span>
                   <span {...S} className="icon-bar"></span>
                   <span {...S} className="icon-bar"></span>
@@ -129,7 +132,7 @@ const AppShell = ({ children }) => {
             {!isNodalUser && (
               <ul {...S} className="list-unstyled components">
                 <li {...S} className="dash_role">DEPARTMENT USER</li>
-                <li {...S}><NavLink {...S} to="/home" className={navLinkClass}><i {...S} className="fa fa-home"></i>Home</NavLink></li>
+                <li {...S}><NavLink {...S} to="/home" className={navLinkClass} onClick={closeMenu}><i {...S} className="fa fa-home"></i>Home</NavLink></li>
               </ul>
             )}
 
@@ -137,8 +140,8 @@ const AppShell = ({ children }) => {
             {isNodalUser && (
               <ul {...S} className="list-unstyled components">
                 <li {...S} className="dash_role">CMO ADMIN</li>
-                <li {...S}><NavLink {...S} to="/NodalDashboard" className={navLinkClass}><i {...S} className="fa fa-home"></i>100-Days' Mission</NavLink></li>
-                <li {...S}><NavLink {...S} to="/NodalUsermgt" className={navLinkClass}><i {...S} className="fa fa-user"></i>User Management</NavLink></li>
+                <li {...S}><NavLink {...S} to="/NodalDashboard" className={navLinkClass} onClick={closeMenu}><i {...S} className="fa fa-home"></i>100-Days' Mission</NavLink></li>
+                <li {...S}><NavLink {...S} to="/NodalUsermgt" className={navLinkClass} onClick={closeMenu}><i {...S} className="fa fa-user"></i>User Management</NavLink></li>
               </ul>
             )}
 

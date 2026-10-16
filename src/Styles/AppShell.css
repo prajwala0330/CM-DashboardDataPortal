@@ -898,3 +898,107 @@ border-radius: 5px;
   font-family: 'Poppins', system-ui, sans-serif;
   font-weight: 700;
 }
+
+/* ===== Redesign U2: responsive shell =====
+   Uses existing palette values only. Every selector keeps the [data-shell] scope. */
+
+/* Sidebar keeps its desktop proportion but never gets too narrow (labels wrapping) or too wide */
+.sidebar[data-shell] {
+  width: clamp(220px, 18%, 280px);
+  height: calc(100vh - 66px);
+  overflow-y: auto;
+}
+
+#sidebar[data-shell] {
+  height: auto;
+  min-height: 100%;
+}
+
+#content[data-shell] {
+  width: auto;
+  margin-left: clamp(220px, 18%, 280px);
+}
+
+/* Navbar menu button: visible bars (they were white on a white navbar) */
+.navbar-inverse[data-shell] .navbar-toggle[data-shell] {
+  border-color: #E7DCC2;
+  background-color: #ffffff;
+  margin-top: 12px;
+  margin-right: 12px;
+}
+
+.navbar-inverse[data-shell] .navbar-toggle[data-shell]:hover,
+.navbar-inverse[data-shell] .navbar-toggle[data-shell]:focus {
+  background-color: #fbf5e9;
+}
+
+.navbar-inverse[data-shell] .navbar-toggle[data-shell] .icon-bar[data-shell] {
+  background-color: #26324A;
+}
+
+@media (max-width: 767px) {
+  .navbar[data-shell] {
+    padding: 5px 8px;
+  }
+
+  .top_nav_img[data-shell] {
+    height: 44px;
+  }
+
+  .navbar-inverse[data-shell] .navbar-brand[data-shell] p[data-shell] {
+    font-size: 14px;
+    margin-top: 2px;
+  }
+
+  /* Welcome + profile: a bar under the navbar while the menu is open */
+  .navbar-collapse[data-shell] {
+    position: fixed;
+    top: 66px;
+    left: 0;
+    right: 0;
+    height: 52px;
+    margin: 0 !important;
+    padding: 0 12px;
+    overflow: visible !important;
+    background-color: #ffffff;
+    border-top: 1px solid #E7DCC2;
+    box-shadow: 0 8px 24px rgba(38, 50, 74, 0.15);
+  }
+
+  .myul_right[data-shell] {
+    float: none;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+  }
+
+  .welcome[data-shell] a[data-shell] {
+    top: 0;
+  }
+
+  /* Sidebar becomes a slide-in menu */
+  .sidebar[data-shell] {
+    top: calc(66px + 52px);
+    width: 260px;
+    max-width: 85vw;
+    height: calc(100vh - 66px - 52px);
+    transform: translateX(-105%);
+    visibility: hidden;
+    transition: transform 0.2s ease, visibility 0.2s ease;
+    box-shadow: 0 8px 24px rgba(38, 50, 74, 0.15);
+    z-index: 1000;
+  }
+
+  .cms-menu-open[data-shell] .sidebar[data-shell] {
+    transform: none;
+    visibility: visible;
+  }
+
+  #content[data-shell] {
+    width: 100%;
+    margin-left: 0;
+  }
+}
